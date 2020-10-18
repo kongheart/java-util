@@ -11,13 +11,12 @@
         if (origin == null || origin.length() == 0) {
             return "";
         }
-        char[] chars = origin.toCharArray();
         int len;
         if ((len = origin.length()) <= 2) {
-            return chars[0] + generateSymbol(symbol, symbolCount);
+            return origin.charAt(0) + generateSymbol(symbol, symbolCount);
         }
         if (retainFrontLen + retainAfterLen >= len) {
-            return chars[0] + generateSymbol(symbol, symbolCount) + chars[len - 1];
+            return origin.charAt(0) + generateSymbol(symbol, symbolCount) + origin.charAt(len - 1);
         }
         return origin.substring(0, retainFrontLen) +
                 generateSymbol(symbol, symbolCount) + origin.substring(len - retainAfterLen);
